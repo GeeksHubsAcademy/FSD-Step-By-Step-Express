@@ -7,6 +7,6 @@ const authMiddleware = require('../middlewares/verifyToken')
 
 // Introduzco el middleware como argumento previo al controlador. Recordemos que hacemos uso de next() para dar paso al controlador siguiente.
 router.get('/', authMiddleware, authController.getAllUsers)
-
+router.put('/profile', authMiddleware, authController.updateUser)
 // Exporto para poder utilizar esto dentro del archivo router.js
 module.exports = router;
