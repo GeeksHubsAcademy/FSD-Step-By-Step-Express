@@ -29,6 +29,7 @@ module.exports = {
       },
       role_id: {
         type: Sequelize.INTEGER,
+        // Tengo que explicitar a qué modelo hago referencia y cuál es su clave primaria, que es la que va a usar como foreignKey
         references:{
           model: "roles",
           key: "id"
