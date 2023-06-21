@@ -1,14 +1,14 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class User extends Model {
+  class user extends Model {
     static associate(models) {
-      models.User.belongsTo(models.Role, {
+      models.user.belongsTo(models.role, {
         foreignKey: "role_id"
       })
     }
   }
-  User.init(
+  user.init(
     {
       email: {
         // Si quiero añadir algún atributo al modelo para que encaje con los de la migración, tengo que crear un objeto para cada elemento e introducir los atributos pertinentes
@@ -28,8 +28,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "User",
+      modelName: "user",
     }
   );
-  return User;
+  return user;
 };
