@@ -94,4 +94,5 @@ authController.login = async (req, res) => {
   }
 };
 
+// Exporto el objeto con todos los métodos que le he creado, para poder usarlos en mi archivo de rutas.
 module.exports = authController;
