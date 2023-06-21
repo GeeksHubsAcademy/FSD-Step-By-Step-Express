@@ -4,8 +4,12 @@ module.exports = (sequelize, DataTypes) => {
   class user extends Model {
     static associate(models) {
       models.user.belongsTo(models.role, {
-        foreignKey: "role_id"
-      })
+        foreignKey: "role_id",
+      }),
+        models.user.belongsToMany(models.book, {
+          through: "favorites",
+          foreignKey: "user_id",
+        });
     }
   }
   user.init(
