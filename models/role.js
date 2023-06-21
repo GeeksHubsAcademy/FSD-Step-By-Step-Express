@@ -4,18 +4,19 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class role extends Model {
+  class Role extends Model {
     static associate(models) {
       // Aquí se definen las asociaciones con el resto de modelos
+      models.Role.hasOne(models.User)
     }
   }
-  role.init({
+  Role.init({
     // Aquí tenemos los campos que hemos introducido en el comando. La id no es necesario colocarla aquí si no vamos a cambiarle el nombre, viene predeterminada en el modelo.
     name: DataTypes.STRING
   }, {
     sequelize,
     // exporto el nombre del modelo como "role" para utilizarlo al establecer relaciones con otros modelos
-    modelName: 'role',
+    modelName: 'Role',
   });
-  return role;
+  return Role;
 };
